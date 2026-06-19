@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Awesome Website</title>
+    <title>Coffee Matching Proposal</title>
 </head>
 <body>
     <h1>Introduction & Background</h1>
@@ -10,19 +10,19 @@
     <p> Per data released by the USDA, in 2025 [12], net domestic coffee consumption in the United States was approximately 3.1 million tons of coffee beans. Using census data to get a per capita amount, this roughly works out to around 9 kg of coffee beans per person per year. The goal of this project is to help coffee drinkers enjoy their 9 kg per year a little bit more, by providing tailored recommendations for coffee blends based on the drinker’s preferences.  </p>
     <h3> Methods </h3>
     <p> The datasets provided contain a rich combination of dense information pertaining to relevant production information to the coffee as well as quality specifications. We plan to apply supervised learning techniques to the GACTT dataset to build a robust predictor of a user’s most likely preference in a blind taste test based on the SCA flavor wheel, then apply unsupervised learning to the CQI dataset in order to find four candidate coffees, which are then fed back into the original supervised model as the four taste test options, resulting in an overall prediction for the coffee the user would most enjoy. As such, the team has selected the following methodologies for both data preprocessing and modeling: </p>
-    <sh1> Data Preprocessing Methods (3) </sh1>
-    <ol1> 
+    <h4> Data Preprocessing Methods (3) </h4>
+    <ol> 
         <li> One Hot Encoding Binary Features (OneHotEncoder): this pre-processing stage will assist us in representing text features in the data as binary features for the algorithms to use. </li>
         <li> Imputation for Missing Values (SimpleImputer): necessary step to assess the gaps within the data set corresponding to ‘Nan’ values.</li>
-        <li> 3.	PCA for Dimension Reduction (decomposition.PCA): will be used to reduce the number of categorical columns in the dataset since there will be quite many of these after the one hot encoding has been done. </li>
-    </ol1>
-    <sh2> ML Algorithms (3) </sh2>
-    <ol2>
+        <li> PCA for Dimension Reduction (decomposition.PCA): will be used to reduce the number of categorical columns in the dataset since there will be quite many of these after the one hot encoding has been done. </li>
+    </ol>
+    <h5> ML Algorithms (3) </h5>
+    <ol>
         <li> Gaussian Mixture Model (GaussianMixture): primarily proposed to map estimated user preferences from supervised learning to nearest coffee in the coffee quality set.  </li>
         <li> Logistic Regression (LogisticRegression): this will be our linear baseline. </li>
         <li> KNN (KNeighborsClassifier): natural in this case as it will find similar coffee drinkers by proximity. </li>
-    </ol2>
-    <h4> Results and Discussion </h4>
+    </ol>
+    <h6> Results and Discussion </h6>
     <p> This project aims to develop a model that predicts participants’ coffee preferences using demographic, behavioral, and spending information collected from over 4000 respondents. The project will examine the relative importance of demographic variables and coffee-related behaviors to identify the most influential factors. Model performance will be assessed using Accuracy, Precision, Recall, and F1-score [1]. A confusion matrix will also be used to identify common misclassification patterns among coffee preference categories. These metrics will be used to compare the predictive performance of different learning models for classifying coffee preferences based on the features. From a sustainability perspective, improved understanding and prediction of consumer preferences may reduce product testing waste and support more efficient coffee production and marketing strategies. Since demographic variables such as age, gender, ethnicity, and political affiliation are included in the dataset, it is important to evaluate whether the model relies excessively on these attributes when predicting coffee preferences. A desirable outcome is that coffee-related behaviors, such as roast preference, brewing method, and caffeine consumption, contribute more strongly to the predictions than demographic characteristics. The results are expected to provide insights into consumer coffee preferences while demonstrating the effectiveness of machine learning methods for preference prediction. </p>
 </body>
 </html>
