@@ -11,7 +11,7 @@
     <h1> Methods </h1>
     <p> The datasets provided contain a rich combination of dense information pertaining to relevant production information to the coffee as well as quality specifications. We plan to apply supervised learning techniques to the GACTT dataset to build a robust predictor of a user’s most likely preference in a blind taste test based on the SCA flavor wheel, then apply unsupervised learning to the CQI dataset in order to find four candidate coffees, which are then fed back into the original supervised model as the four taste test options, resulting in an overall prediction for the coffee the user would most enjoy. As such, the team has selected the following methodologies for both data preprocessing and modeling: </p>
     <h2> Data Preprocessing Methods (3) </h2>
-    <ol> 
+    <ol>
         <li> One Hot Encoding Binary Features (OneHotEncoder): this pre-processing stage will assist us in representing text features in the data as binary features for the algorithms to use. </li>
         <li> Imputation for Missing Values (SimpleImputer): necessary step to assess the gaps within the data set corresponding to ‘Nan’ values.</li>
         <li> PCA for Dimension Reduction (decomposition.PCA): will be used to reduce the number of categorical columns in the dataset since there will be quite many of these after the one hot encoding has been done. </li>
