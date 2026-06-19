@@ -9,7 +9,7 @@
     <h1> Problem & Motivation </h1>
     <p> Per data released by the USDA, in 2025 [11], net domestic coffee consumption in the United States was approximately 3.1 million tons of coffee beans. Using census data to get a per capita amount, this roughly works out to around 9 kg of coffee beans per person per year. The goal of this project is to help coffee drinkers enjoy their 9 kg per year a little bit more, by providing tailored recommendations for coffee blends based on the drinker’s preferences. </p>
     <h1> Methods </h1>
-    <p> The datasets provided contain a rich combination of dense information pertaining to relevant production information to the coffee as well as quality specifications. We plan to apply supervised learning techniques to the GACTT dataset to build a robust predictor of a user’s most likely preference in a blind taste test based on the SCA flavor wheel, then apply unsupervised learning to the CQI dataset in order to find four candidate coffees, which are then fed back into the original supervised model as the four taste test options, resulting in an overall prediction for the coffee the user would most enjoy. As such, the team has selected the following methodologies for both data preprocessing and modeling: </p>
+    <p> The datasets provided contain a rich combination of dense information pertaining to relevant production information to the coffee as well as quality specifications. We plan to apply supervised learning techniques to the GACTT dataset to build a robust predictor of a user’s most likely preference in a blind taste test based on the SCA flavor wheel, then apply unsupervised learning to the CQI dataset in order to find four candidate coffees, which are then fed back into the original supervised model as the four taste test options, resulting in an overall prediction for the coffee the user would most enjoy. As such, the team has selected the following methodologies for both data preprocessing and modeling [12]: </p>
     <h2> Data Preprocessing Methods (3) </h2>
     <ol>
         <li> One Hot Encoding Binary Features (OneHotEncoder): this pre-processing stage will assist us in representing text features in the data as binary features for the algorithms to use. </li>
@@ -37,6 +37,7 @@
         <li> Coffee Quality Institute Database documentation, qacData. </li>
         <li> IBM, “What is content-based filtering?” </li>
         <li> https://www.fas.usda.gov/data/coffee-world-markets-and-trade-12182026 </li>
+        <li> https://scikit-learn.org/stable/ </li>
     </ol>
 </body>
 </html>
