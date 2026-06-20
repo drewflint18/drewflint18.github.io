@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Coffee Matching Proposal</title>
+    <title>CS 7641 Project Proposal: Optimizing Coffee Selection</title>
 </head>
 <body>
+    <h1 style="text-align: center; margin-bottom: 30px;">CS 7641 Project Proposal: Optimizing Coffee Selection</h1>
     <h1>Introduction & Background</h1>
-    <p> Coffee preference is easy to feel but surprisingly hard to describe. A person may say they like coffee that is “smooth,” “fruity,” “strong,” or “not too bitter,” while coffee datasets describe beans using structured sensory features such as aroma, acidity, flavor, aftertaste, roast level, and processing method [4], [6], [9]. Our project treats this gap as an interpretable ML recommendation problem: can we use demographic information, coffee habits, and blind tasting responses to predict what type of coffee a user or group of users would enjoy? Similarly, the general idea of content-based recommender systems, where users and items are matched through feature similarity [10]. Our main dataset is the Great American Coffee Taste Test (GACTT) 2024 [8], which includes survey and blind tasting responses from over 4,000 participants. The dataset includes demographic features, spending habits, stated preferences, and blind-test ratings. To make the model more interpretable, we may represent coffee taste as a vector inspired by the SCA Coffee Taster’s Flavor Wheel and WCR Sensory Lexicon [4,5,7]. Similarly, prior food recommender work [2,3] also shows that personal preferences can be learned from behavioral, demographic, and sensory features. As a secondary dataset, we will use the Coffee Quality Institute coffee-quality-database (CQI) [6,9], which contains reviews and bean-level attributes such as aroma, flavor, acidity, origin, species, processing method, and defects. Together, these datasets allow us to predict a user preference profile and recommend coffees whose sensory attributes are closest to that user’s profile. </p> 
+    <p> Coffee preference is easy to feel but surprisingly hard to describe. A person may say they like coffee that is “smooth,” “fruity,” “strong,” or “not too bitter,” while coffee datasets describe beans using structured sensory features such as aroma, acidity, flavor, aftertaste, roast level, and processing method [1], [2], [3]. Our project treats this gap as an interpretable ML recommendation problem: can we use demographic information, coffee habits, and blind tasting responses to predict what type of coffee a user or group of users would enjoy? Similarly, the general idea of content-based recommender systems, where users and items are matched through feature similarity [4]. Our main dataset is the Great American Coffee Taste Test (GACTT) 2024 [5], which includes survey and blind tasting responses from over 4,000 participants. The dataset includes demographic features, spending habits, stated preferences, and blind-test ratings. To make the model more interpretable, we may represent coffee taste as a vector inspired by the SCA Coffee Taster’s Flavor Wheel and WCR Sensory Lexicon [1], [6], [7]. Similarly, prior food recommender work [8], [9] also shows that personal preferences can be learned from behavioral, demographic, and sensory features. As a secondary dataset, we will use the Coffee Quality Institute coffee-quality-database (CQI) [6,9], which contains reviews and bean-level attributes such as aroma, flavor, acidity, origin, species, processing method, and defects. Together, these datasets allow us to predict a user preference profile and recommend coffees whose sensory attributes are closest to that user’s profile. </p> 
     <h1> Problem & Motivation </h1>
-    <p> Per data released by the USDA, in 2025 [11], net domestic coffee consumption in the United States was approximately 3.1 million tons of coffee beans. Using census data to get a per capita amount, this roughly works out to around 9 kg of coffee beans per person per year. The goal of this project is to help coffee drinkers enjoy their 9 kg per year a little bit more, by providing tailored recommendations for coffee blends based on the drinker’s preferences. </p>
+    <p> Per data released by the USDA, in 2025 [10], net domestic coffee consumption in the United States was approximately 3.1 million tons of coffee beans. Using census data to get a per capita amount, this roughly works out to around 9 kg of coffee beans per person per year. The goal of this project is to help coffee drinkers enjoy their 9 kg per year a little bit more, by providing tailored recommendations for coffee blends based on the drinker’s preferences. </p>
     <h1> Methods </h1>
-    <p> The datasets provided contain a rich combination of dense information pertaining to relevant production information to the coffee as well as quality specifications. We plan to apply supervised learning techniques to the GACTT dataset to build a robust predictor of a user’s most likely preference in a blind taste test based on the SCA flavor wheel, then apply unsupervised learning to the CQI dataset in order to find four candidate coffees, which are then fed back into the original supervised model as the four taste test options, resulting in an overall prediction for the coffee the user would most enjoy. As such, the team has selected the following methodologies for both data preprocessing and modeling [12]: </p>
+    <p> The datasets provided contain a rich combination of dense information pertaining to relevant production information to the coffee as well as quality specifications. We plan to apply supervised learning techniques to the GACTT dataset to build a robust predictor of a user’s most likely preference in a blind taste test based on the SCA flavor wheel, then apply unsupervised learning to the CQI dataset in order to find four candidate coffees, which are then fed back into the original supervised model as the four taste test options, resulting in an overall prediction for the coffee the user would most enjoy. As such, the team has selected the following methodologies for both data preprocessing and modeling [11]: </p>
     <h2> Data Preprocessing Methods (3) </h2>
     <ol>
         <li> One Hot Encoding Binary Features (OneHotEncoder): this pre-processing stage will assist us in representing text features in the data as binary features for the algorithms to use. </li>
@@ -23,21 +24,21 @@
         <li> KNN (KNeighborsClassifier): natural in this case as it will find similar coffee drinkers by proximity. </li>
     </ol>
     <h1> Results and Discussion </h1>
-    <p> This project aims to develop a model that predicts participants’ coffee preferences using demographic, behavioral, and spending information collected from over 4000 respondents. The project will examine the relative importance of demographic variables and coffee-related behaviors to identify the most influential factors. Model performance will be assessed using Accuracy, Precision, Recall, and F1-score [1]. A confusion matrix will also be used to identify common misclassification patterns among coffee preference categories. These metrics will be used to compare the predictive performance of different learning models for classifying coffee preferences based on the features. From a sustainability perspective, improved understanding and prediction of consumer preferences may reduce product testing waste and support more efficient coffee production and marketing strategies. Since demographic variables such as age, gender, ethnicity, and political affiliation are included in the dataset, it is important to evaluate whether the model relies excessively on these attributes when predicting coffee preferences. A desirable outcome is that coffee-related behaviors, such as roast preference, brewing method, and caffeine consumption, contribute more strongly to the predictions than demographic characteristics. The results are expected to provide insights into consumer coffee preferences while demonstrating the effectiveness of machine learning methods for preference prediction. </p>
+    <p> This project aims to develop a model that predicts participants’ coffee preferences using demographic, behavioral, and spending information collected from over 4000 respondents. The project will examine the relative importance of demographic variables and coffee-related behaviors to identify the most influential factors. Model performance will be assessed using Accuracy, Precision, Recall, and F1-score [12]. A confusion matrix will also be used to identify common misclassification patterns among coffee preference categories. These metrics will be used to compare the predictive performance of different learning models for classifying coffee preferences based on the features. From a sustainability perspective, improved understanding and prediction of consumer preferences may reduce product testing waste and support more efficient coffee production and marketing strategies. Since demographic variables such as age, gender, ethnicity, and political affiliation are included in the dataset, it is important to evaluate whether the model relies excessively on these attributes when predicting coffee preferences. A desirable outcome is that coffee-related behaviors, such as roast preference, brewing method, and caffeine consumption, contribute more strongly to the predictions than demographic characteristics. The results are expected to provide insights into consumer coffee preferences while demonstrating the effectiveness of machine learning methods for preference prediction. </p>
     <h1> References </h1>
     <ol>
-        <li> https://scikit-learn.org/stable/modules/model_evaluation.html </li>
-        <li> C. Trattner and D. Elsweiler, “Food Recommender Systems: Important Contributions, Challenges and Future Research Directions,” 2017. </li>
-        <li> C. Anderson, “A survey of food recommenders,” 2018. </li>
         <li> Specialty Coffee Association, “Coffee Taster’s Flavor Wheel.” </li>
-        <li> World Coffee Research, “Sensory Lexicon.” </li>
         <li> J. L. D. B. C., “coffee-quality-database: Building the Coffee Quality Institute Database,” GitHub. https://github.com/jldbc/coffee-quality-database </li>
-        <li> A. A. Metwally et al., “Learning Personal Food Preferences via Food Logs Embedding,” 2021. </li>
-        <li> Kaggle, “The Great American Coffee Taste Test Dataset.” https://www.kaggle.com/datasets/ibrahimqasimi/great-american-coffee-taste-test-2024 </li>
         <li> Coffee Quality Institute Database documentation, qacData. </li>
         <li> IBM, “What is content-based filtering?” </li>
+        <li> Kaggle, “The Great American Coffee Taste Test Dataset.” https://www.kaggle.com/datasets/ibrahimqasimi/great-american-coffee-taste-test-2024 </li>
+        <li> World Coffee Research, “Sensory Lexicon.” </li>
+        <li> A. A. Metwally et al., “Learning Personal Food Preferences via Food Logs Embedding,” 2021. </li>
+        <li> C. Trattner and D. Elsweiler, “Food Recommender Systems: Important Contributions, Challenges and Future Research Directions,” 2017. </li>
+        <li> C. Anderson, “A survey of food recommenders,” 2018. </li>
         <li> https://www.fas.usda.gov/data/coffee-world-markets-and-trade-12182026 </li>
         <li> https://scikit-learn.org/stable/ </li>
+        <li> https://scikit-learn.org/stable/modules/model_evaluation.html </li>
     </ol>
     <h1> Project Gantt Chart</h1>
     <iframe 
@@ -57,7 +58,7 @@
     <tbody>
         <tr>
             <td><strong>Golnaz Aminaltojjari</strong></td>
-            <td>Drafted problem motivation section and slides for video proposal portion.</td>
+            <td>Drafted preliminary results section and slides for video proposal portion.</td>
         </tr>
         <tr>
             <td><strong>Cameron Collins</strong></td>
@@ -73,7 +74,7 @@
         </tr>
         <tr>
             <td><strong>Connor Pan</strong></td>
-            <td>Drafted preliminary results section and slides for video proposal portion.</td>
+            <td>Drafted problem motivation section and slides for video proposal portion.</td>
         </tr>
     </tbody>
 </table>
