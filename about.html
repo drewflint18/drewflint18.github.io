@@ -1,1 +1,78 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CS 7641 Project Midterm Report: Tool Failure Diagnosis and Prediction Using Machine Learning </title>
+</head>
+<body>
+    <h1 style="text-align: center; margin-bottom: 30px;">CS 7641 Project Midterm Report: Tool Failure Diagnosis and Prediction Using Machine Learning</h1>
+    <p style="text-align: center; font-style: italic; color: #555; margin-bottom: 25px;">
+        Prepared by: Golnaz Tojar, Cameron Collins, Andrew Flint, Yibo Fu, and Connor Pan
+    </p>
+    <h1>Introduction & Background</h1>
+    <p>Our project initially focused on the Global Coffee Health Dataset. However, after examining the data, we found that it contained numerous missing values and that most features were binary, limiting the scope of our analysis. We therefore pivoted to the AI4I 2020 Predictive Maintenance Dataset, which offers complete data, continuous sensor measurements, and a more suitable benchmark for developing and comparing machine learning models.
+The onset of the AI/ML era and the expansion of Internet of Things (IoT) devices have enabled a new era of increased predictive maintenance capabilities. Predictive maintenance, as described by IBM, is “a type of maintenance that uses operational data and real-time condition monitoring to predict when assets are likely to fail.” Predictive maintenance makes use of advanced machine learning algorithms to identify changes in component states (ie. temperature, duration, load, etc.) to assess the likelihood of component failure. This can in turn be used to inform smart maintenance protocols to prevent system components from failing while in use. This form of predictive maintenance deviates from traditional protocols of preventative maintenance which relies on fixed schedules based on average performance metrics across a component. Preventative maintenance on the other hand uses the modern data-driven methods to provide specific insights for each component and recommend maintenance when applicable [1].
+In particular, in a report entitled “AI Predictive Maintenance for the Airline Industry” by HCLTech, the authors claim that predictive maintenance is not just an upgrade, but rather a core pillar of next generation aviation. Implementation of predictive maintenance in the aviation industry has on average led to a 15-30% reduction in unscheduled maintenance as well as a 10-20% reduction in maintenance operating costs among other maintenance-related benefits [2]. While this is just a specific example, predictive maintenance is being integrated in many different industries simultaneously. But the open-ended question remains of what are the best models and data processing techniques to accurately predict machine failures? </p>
+    <h1> Problem Defintion </h1>
+    <p> Unexpected machine failures can lead to costly production downtime, reduced productivity, and increased maintenance expenses in manufacturing systems [3,4]. Traditional maintenance strategies, such as scheduled preventive maintenance or corrective maintenance after failure, often result in unnecessary servicing or unexpected equipment breakdowns. Predictive maintenance aims to overcome these limitations by using machine operating data to anticipate failures.
+In this project, we use the AI4I 2020 Predictive Maintenance Dataset [5], which contains 10,000 machine operating records with six process- and sensor-related features: product quality type, air temperature, process temperature, rotational speed, torque, and tool wear. The dataset also includes a binary target indicating whether a machine failure occurred, as well as the specific failure modes, including Tool Wear Failure (TWF), Heat Dissipation Failure (HDF), Power Failure (PWF), Overstrain Failure (OSF), or Random Failure (RNF).
+To address this problem, several supervised and unsupervised machine learning algorithms, including Random Forest, Logistic regression, and Decision Tree are proposed. The goal is to identify a model that provides accurate and reliable failure prediction while maintaining good generalization to unseen machine operating conditions. </p>
+    <h1> Methods </h1>
+    <p> The first learning algorithm that we implemented was a random forest multi-output classifier with a balanced class weight to counteract the label imbalance naturally present in the realm of predictive maintenance. Our feature set was the following six indicators: Type, Air Temperature, Process Temperature, Rotational Speed, Torque, and Tool Wear. This random forest classifier was trained by building hundreds of decision trees on random subsets of the data. Each tree is built by randomly selecting a subset of the feature set and splitting based on those features only. At conclusion of the algorithm, each tree forms its own prediction and these are aggregated and averaged across all trees. In our implementation, we chose to tune our hyperparameters over the following grid: n_estimators: [200, 400], max_depth: [None, 8, 16], min_samples_leaf: [1, 3, 5], and max_features: [“sqrt”, 0.5]. The n_estimators represents the number of individual trees built (later aggregated), max_depth refers to the depth of each tree, min_samples_leaf is the minimum number of observations to form a leaf node, and max_features is the number of features used in each tree where “sqrt” is ~2.4 and 0.5 would use 3 of the 6 features. This grid sweep was done to find the best set of hyperparameters using two different performance metrics: f1 score and recall. Those hyperparameters were then used on the tree to evaluate its performance with the test set.
+In addition, to perform our exploratory data analysis (EDA), we implemented principal component analysis. We used this to determine which features were most impactful on the variance of the failure modes. PCA determined that the feature space effectively collapses into three dimensions – temperature, power (rotational speed and torque), and tool wear. </p>
+    <h1> Results and Discussion </h1>
+    <p> This project aims to develop a model that predicts participants’ coffee preferences using demographic, behavioral, and spending information collected from over 4000 respondents. The project will examine the relative importance of demographic variables and coffee-related behaviors to identify the most influential factors. Model performance will be assessed using Accuracy, Precision, Recall, and F1-score [12]. A confusion matrix will also be used to identify common misclassification patterns among coffee preference categories. These metrics will be used to compare the predictive performance of different learning models for classifying coffee preferences based on the features. From a sustainability perspective, improved understanding and prediction of consumer preferences may reduce product testing waste and support more efficient coffee production and marketing strategies. Since demographic variables such as age, gender, ethnicity, and political affiliation are included in the dataset, it is important to evaluate whether the model relies excessively on these attributes when predicting coffee preferences. A desirable outcome is that coffee-related behaviors, such as roast preference, brewing method, and caffeine consumption, contribute more strongly to the predictions than demographic characteristics. The results are expected to provide insights into consumer coffee preferences while demonstrating the effectiveness of machine learning methods for preference prediction. </p>
+    <h1> References </h1>
+    <ol>
+        <li> Specialty Coffee Association, “Coffee Taster’s Flavor Wheel.” </li>
+        <li> J. L. D. B. C., “coffee-quality-database: Building the Coffee Quality Institute Database,” GitHub. https://github.com/jldbc/coffee-quality-database </li>
+        <li> Coffee Quality Institute Database documentation, qacData. </li>
+        <li> IBM, “What is content-based filtering?” </li>
+        <li> Kaggle, “The Great American Coffee Taste Test Dataset.” https://www.kaggle.com/datasets/ibrahimqasimi/great-american-coffee-taste-test-2024 </li>
+        <li> World Coffee Research, “Sensory Lexicon.” </li>
+        <li> A. A. Metwally et al., “Learning Personal Food Preferences via Food Logs Embedding,” 2021. </li>
+        <li> C. Trattner and D. Elsweiler, “Food Recommender Systems: Important Contributions, Challenges and Future Research Directions,” 2017. </li>
+        <li> C. Anderson, “A survey of food recommenders,” 2018. </li>
+        <li> https://www.fas.usda.gov/data/coffee-world-markets-and-trade-12182026 </li>
+        <li> https://scikit-learn.org/stable/ </li>
+        <li> https://scikit-learn.org/stable/modules/model_evaluation.html </li>
+    </ol>
+    <h1> Project Gantt Chart</h1>
+    <iframe 
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQIv2ABX3O-6Sc5HefWEut9K0aFULFDGvixyP9i9TU5h-5iYZJJzETEBB0M3HlzpSy4cZWpsI4o8ztm/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"
+        width="100%" 
+        height="800" 
+        style="border: none; min-height: 70vh;">
+    </iframe>
+    <h1>Contribution Table</h1>
+    <table border="1" cellpadding="10" cellspacing="0" style="width:50%; border-collapse: collapse; text-align: left; margin-top: 15px; margin-bottom: 25px;">
+    <thead>
+        <tr style="background-color: #f2f2f2;">
+            <th style="width: 15%;">Name</th>
+            <th style="width: 35%;">Proposal Contributions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Golnaz Aminaltojjari</strong></td>
+            <td>Drafted preliminary results section and slides for video proposal portion.</td>
+        </tr>
+        <tr>
+            <td><strong>Cameron Collins</strong></td>
+            <td>Researched and drafted methodologies section.</td>
+        </tr>
+        <tr>
+            <td><strong>Andrew Flint</strong></td>
+            <td>Drafted methodologies section and compiled Gantt Chart and Gitpages Deliverable.</td>
+        </tr>
+        <tr>
+            <td><strong>Yibo Fu</strong></td>
+            <td>Drafted Introduction & Background section; recorded video submission.</td>
+        </tr>
+        <tr>
+            <td><strong>Connor Pan</strong></td>
+            <td>Drafted problem motivation section and slides for video proposal portion.</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
