@@ -34,9 +34,13 @@ We also implemented the Dataset and Datapoint classes, which are used in data pr
 However, when class representation is considered, a more clear picture emerges. Since failure is a mere 3.39% of observations spread over five distinct class labels with varying frequency, it becomes clear that the aggregate score is a result of a few data-starved labels dragging down the performance. On the most frequent labels (HDF, OSF and PWF), the F1 optimized model scored F1 of 0.811, 0.898, and 0.810, respectively with precision and recall both above 0.750. See Figures 2-5 below for visual representation of these results. These modes contained enough observations for the random forest to actually learn generalizable splits. <br><br>
 TWF and RNF, conversely, proved to be effectively unlearnable with F1 score = 0.000 on both for the F1 optimized set of hyperparameters, and the recall optimized model still had a difficult time flagging these. This reflects a true sample size limitation which we will take a number of measures to counteract in future work. </p>
     <img src="r1.png" style="width: 50%; height: auto;" >
+    <p> Figure 2: Average feature importance of recorded features across random forest iterations. </p>
     <img src="r2.png" style="width: 50%; height: auto;" >
+    <p> Figure 3: F1-optimized and Recall-optimized scores for random forest across all 5 failure modes.  </p>
     <img src="r3.png" style="width: 50%; height: auto;" >
+    <p> Figure 4: Precision, recall, and F1 score for random forest across all 5 failure modes. </p>
     <img src="r4.png" style="width: 50%; height: auto;" >
+    <p> Figure 5: Number of samples per failure in data set. </p>
     <h1> Future Work </h1>
     <p> In future work, we plan to use these rules to create a synthetic data generator for this application, which will be able to create a more uniform distribution of failures/nonfailures, allowing for improved accuracy in future model iterations. We also plan to investigate how multi-class logistic regression and decision tree models can be tailored to this application. </p>
     <h1> Appendix </h1>
